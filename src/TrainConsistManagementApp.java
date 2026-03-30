@@ -1,33 +1,34 @@
-import java.util.ArrayList;
-public class TrainConsistManagementApp {
+import java.util.LinkedList;
 
+public class TrainConsistManagementApp {
     public static void main(String[] args) {
 
         System.out.println("========================================");
-        System.out.println("UC2 - Add Passenger Bogies to Train");
+        System.out.println("UC4 - Maintain Ordered Bogie Consist");
         System.out.println("========================================\n");
 
-        ArrayList<String> passengerBogies = new ArrayList<>();
+        LinkedList<String> consist = new LinkedList<>();
 
-        passengerBogies.add("Sleeper");
-        passengerBogies.add("AC Chair");
-        passengerBogies.add("First Class");
+        consist.add("Engine");
+        consist.add("Sleeper");
+        consist.add("AC");
+        consist.add("Cargo");
+        consist.add("Guard");
 
-        System.out.println("After Adding Bogies:");
-        System.out.println("Passenger Bogies : " + passengerBogies);
+        System.out.println("Initial Train Consist:");
+        System.out.println(consist);
 
-        passengerBogies.remove("AC Chair");
+        consist.add(2, "Pantry Car");
 
-        System.out.println("\nAfter Removing 'AC Chair':");
-        System.out.println("Passenger Bogies : " + passengerBogies);
+        System.out.println("\nAfter Inserting 'Pantry Car' at position 2:");
+        System.out.println(consist);
 
-        System.out.println("\nChecking if 'Sleeper' exists:");
-        boolean exists = passengerBogies.contains("Sleeper");
-        System.out.println("Contains Sleeper? : " + exists);
+        consist.removeFirst();
+        consist.removeLast();
 
-        System.out.println("\nFinal Train Passenger Consist:");
-        System.out.println(passengerBogies);
+        System.out.println("\nAfter Removing First and Last Bogie:");
+        System.out.println(consist);
 
-        System.out.println("\nUC2 operations completed successfully...");
+        System.out.println("\nUC4 ordered consist operations completed...");
     }
 }
