@@ -1,33 +1,23 @@
-import java.util.ArrayList;
+import java.util.LinkedHashSet;
+
 public class TrainConsistManagementApp {
 
     public static void main(String[] args) {
 
-        System.out.println("========================================");
-        System.out.println("UC2 - Add Passenger Bogies to Train");
-        System.out.println("========================================\n");
+        System.out.println("=== Train Consist Management App ===");
 
-        ArrayList<String> passengerBogies = new ArrayList<>();
+        System.out.println("\n--- UC5: Preserve Insertion Order of Bogies ---");
 
-        passengerBogies.add("Sleeper");
-        passengerBogies.add("AC Chair");
-        passengerBogies.add("First Class");
+        LinkedHashSet<String> trainFormation = new LinkedHashSet<>();
 
-        System.out.println("After Adding Bogies:");
-        System.out.println("Passenger Bogies : " + passengerBogies);
+        trainFormation.add("Engine");
+        trainFormation.add("Sleeper");
+        trainFormation.add("Cargo");
+        trainFormation.add("Guard");
 
-        passengerBogies.remove("AC Chair");
+        trainFormation.add("Sleeper");
 
-        System.out.println("\nAfter Removing 'AC Chair':");
-        System.out.println("Passenger Bogies : " + passengerBogies);
-
-        System.out.println("\nChecking if 'Sleeper' exists:");
-        boolean exists = passengerBogies.contains("Sleeper");
-        System.out.println("Contains Sleeper? : " + exists);
-
-        System.out.println("\nFinal Train Passenger Consist:");
-        System.out.println(passengerBogies);
-
-        System.out.println("\nUC2 operations completed successfully...");
+        System.out.println("Final Train Formation:");
+        System.out.println(trainFormation);
     }
 }
