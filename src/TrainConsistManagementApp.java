@@ -1,6 +1,15 @@
-import java.util.Scanner;
-import java.util.regex.Pattern;
-import java.util.regex.Matcher;
+import java.util.ArrayList;
+import java.util.List;
+
+class GoodsBogie {
+    String type;
+    String cargo;
+
+    GoodsBogie(String type, String cargo) {
+        this.type = type;
+        this.cargo = cargo;
+    }
+}
 
 public class TrainConsistManagementApp {
 
@@ -8,37 +17,26 @@ public class TrainConsistManagementApp {
 
         System.out.println("=== Train Consist Management App ===");
 
-        System.out.println("\n--- UC11: Validate Train ID & Cargo Code ---");
+        System.out.println("\n--- UC12: Safety Compliance Check ---");
 
-        Scanner sc = new Scanner(System.in);
+        List<GoodsBogie> bogies = new ArrayList<>();
 
-        System.out.print("Enter Train ID: ");
-        String trainId = sc.nextLine();
+        bogies.add(new GoodsBogie("Cylindrical", "Petroleum"));
+        bogies.add(new GoodsBogie("Open", "Coal"));
+        bogies.add(new GoodsBogie("Box", "Grain"));
 
-        System.out.print("Enter Cargo Code: ");
-        String cargoCode = sc.nextLine();
+        boolean isSafe = bogies.stream()
+                .allMatch(b -> {
+                    if (b.type.equals("Cylindrical")) {
+                        return b.cargo.equals("Petroleum");
+                    }
+                    return true;
+                });
 
-        String trainPattern = "TRN-\\d{4}";
-        String cargoPattern = "PET-[A-Z]{2}";
-
-        Pattern p1 = Pattern.compile(trainPattern);
-        Pattern p2 = Pattern.compile(cargoPattern);
-
-        Matcher m1 = p1.matcher(trainId);
-        Matcher m2 = p2.matcher(cargoCode);
-
-        if (m1.matches()) {
-            System.out.println("Valid Train ID");
+        if (isSafe) {
+            System.out.println("Train is SAFE for operation.");
         } else {
-            System.out.println("Invalid Train ID");
+            System.out.println("Train is NOT SAFE!");
         }
-
-        if (m2.matches()) {
-            System.out.println("Valid Cargo Code");
-        } else {
-            System.out.println("Invalid Cargo Code");
-        }
-
-        sc.close();
     }
 }
