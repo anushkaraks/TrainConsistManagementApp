@@ -1,5 +1,5 @@
 import java.util.HashSet;
-public class TrainConsistManagementUC3 {
+public class TrainConsistManagementApp {
 
     public static void main(String[] args) {
 
