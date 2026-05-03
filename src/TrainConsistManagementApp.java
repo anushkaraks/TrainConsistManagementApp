@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class TrainConsistApp {
+public class TrainConsistManagementApp {
 
     // Method to perform Bubble Sort
     public static void bubbleSort(int[] capacities) {
