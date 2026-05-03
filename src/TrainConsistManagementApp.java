@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class TrainConsistApp {
+public class TrainConsistManagementApp {
 
     // Method to sort bogie names using Arrays.sort()
     public static void sortBogieNames(String[] bogieNames) {
